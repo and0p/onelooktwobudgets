@@ -4,6 +4,8 @@
     <data-source source="LOCAL" name="Rails onelooktwobudgets: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="a9724690-ed2d-4904-a58e-8287a5cea81a">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:onelooktwobudgets_development</jdbc-url>
+      <user-name>devuser</user-name>
+      <user-password>dfcedfcfdfdcdfdadfcbdfd9dfd9</user-password>
       <libraries>
         <library>
           <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>
