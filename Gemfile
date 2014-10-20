@@ -41,6 +41,10 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Bootstrap styling
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 # Heroku gems
 gem 'rails_12factor', group: :production
 
