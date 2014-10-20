@@ -58,4 +58,4 @@ production:
   database: onelooktwobudgets_production
   pool: 5
   username: onelooktwobudgets
-  password:
+  password: ENV['S3_KEY']
