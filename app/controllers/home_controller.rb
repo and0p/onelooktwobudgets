@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
-  def create
-  end
   def index
+    @items = Item.all
   end
 end

@@ -1,0 +1,22 @@
+<table border=1>
+   <tr>
+     <td>ID</td>
+     <td>Name</td>
+     <td>MSRP</td>
+     <td>SKU</td>
+     <td>Color (Hex)</td>
+     <td>Sale</td>
+     <td>Category</td>
+   </tr>
+<%  @items.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.name %></td>
+      <td><%= item.msrp %></td>
+      <td><%= item.sku %></td>
+      <td bgcolor="<%= item.color_hex.to_s(16) %>">-----</td>
+      <td><%= item.sale %></td>
+      <td><%= item.item_category %></td>
+    </tr>
+<% end %>
+</table>
