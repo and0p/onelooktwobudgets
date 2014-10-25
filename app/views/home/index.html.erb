@@ -6,7 +6,6 @@
      <td>SKU</td>
      <td>Color (Hex)</td>
      <td>Sale</td>
-     <td>Category</td>
    </tr>
 <%  @items.each do |item| %>
     <tr>
@@ -16,7 +15,6 @@
       <td><%= item.sku %></td>
       <td bgcolor="<%= item.color_hex.to_s(16) %>">-----</td>
       <td><%= item.sale %></td>
-      <td><%= item.item_category %></td>
     </tr>
 <% end %>
 </table>
