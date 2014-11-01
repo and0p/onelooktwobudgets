@@ -39,11 +39,39 @@ description_list = [
     "Silk"
 ]
 
+item_color_list = [
+    "Blue",
+    "Green",
+    "Black",
+    "Charcoal",
+    "Khaki",
+    "Slate",
+    "Corn Blue",
+    "Grey",
+    "Red",
+    "Purple"
+]
+
+
+item_color_list.each do |color|
+  ItemColor.create( name: color )
+end
+
+def random_or_nil()
+  if rand(1) == 1
+    return rand(9)
+  else
+    return nil
+  end
+end
+
 for i in 1..300 do
   Item.create( name: description_list.sample + " " + color_list.sample() + " " + item_list.sample(),
                sku: "abc" + rand(50000).to_s,
                msrp: rand(500),
                color_hex: rand(max_int),
-               sale: false
+               sale: false,
+               primary_color_id: rand(8)+1,
+               secondary_color_id: rand(8)+1
   )
 end

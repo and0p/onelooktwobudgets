@@ -8,10 +8,10 @@
     <user-password>dfcedfcfdfdcdfdadfcbdfd9dfd9</user-password>
     <libraries>
       <library>
-        <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>
+        <url>jar://$PROJECT_DIR$/../postgresql-9.3-1100.jdbc4.jar!/</url>
       </library>
       <library>
-        <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-9.3-1100.jdbc4.jar</url>
+        <url>file://$PROJECT_DIR$/../postgresql-driver-license.txt</url>
       </library>
     </libraries>
     <schema name="information_schema" catalog="onelooktwobudgets_development"/>
@@ -2384,6 +2384,9 @@
       <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
       <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
       <column name="url" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="item_category_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="primary_color_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="secondary_color_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="items_pkey" columns="id"/>
     </table>
     <table name="items_id_seq" schema="public" catalog="onelooktwobudgets_development" type="SEQUENCE">
@@ -12870,7 +12873,7 @@
     <procedure name="pg_identify_object" schema="pg_catalog" catalog="onelooktwobudgets_development" type="2" remarks="Z2V0IG1hY2hpbmUtcGFyc2VhYmxlIGlkZW50aWZpY2F0aW9uIG9mIFNRTCBvYmplY3Q=">
       <prototype return="true">
         <parameter name="classid" sqlType="oid" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="1"/>
-        <parameter name="objid" sqlType="int4" length="0" precision="0" nullable="true" jdbcType="4" type="" index="2"/>
+        <parameter name="objid" sqlType="oid" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="2"/>
         <parameter name="subobjid" sqlType="int4" length="0" precision="0" nullable="true" jdbcType="4" type="" index="3"/>
         <parameter name="type" sqlType="text" length="0" precision="0" nullable="true" jdbcType="12" type="" index="4"/>
         <parameter name="schema" sqlType="text" length="0" precision="0" nullable="true" jdbcType="12" type="" index="5"/>
@@ -13100,7 +13103,7 @@
     </procedure>
     <procedure name="pg_sequence_parameters" schema="pg_catalog" catalog="onelooktwobudgets_development" type="2" remarks="c2VxdWVuY2UgcGFyYW1ldGVycywgZm9yIHVzZSBieSBpbmZvcm1hdGlvbiBzY2hlbWE=">
       <prototype return="true">
-        <parameter name="sequence_oid" sqlType="int4" length="0" precision="0" nullable="true" jdbcType="4" type="" index="1"/>
+        <parameter name="sequence_oid" sqlType="oid" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="1"/>
         <parameter name="start_value" sqlType="int8" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="2"/>
         <parameter name="minimum_value" sqlType="int8" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="3"/>
         <parameter name="maximum_value" sqlType="int8" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="4"/>
@@ -18901,6 +18904,7 @@
     <jdbc-driver>org.postgresql.Driver</jdbc-driver>
     <jdbc-url>jdbc:postgresql:onelooktwobudgets_production</jdbc-url>
     <user-name>onelooktwobudgets</user-name>
+    <user-password>dfefdfe4dffcdff1df8ddff9df99dff5dfe1dfefdff3df8ddff7</user-password>
     <libraries>
       <library>
         <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>
