@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031164015) do
+ActiveRecord::Schema.define(version: 20141101183720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "budgets", force: true do |t|
+    t.integer  "author_id"
+    t.integer  "look_id"
+    t.text     "description"
+    t.integer  "popularity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "item_categories", force: true do |t|
     t.string   "name"
@@ -45,6 +54,18 @@ ActiveRecord::Schema.define(version: 20141031164015) do
     t.integer  "item_category_id"
     t.integer  "primary_color_id"
     t.integer  "secondary_color_id"
+  end
+
+  create_table "looks", force: true do |t|
+    t.string   "name"
+    t.string   "image_url"
+    t.integer  "popularity"
+    t.integer  "author_id"
+    t.integer  "brand_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.boolean  "original"
   end
 
 end
