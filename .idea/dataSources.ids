@@ -2333,6 +2333,51 @@
       <column name="viewowner" sqlType="name" length="2147483647" precision="0" nullable="true" jdbcType="12"/>
       <column name="definition" sqlType="text" length="2147483647" precision="0" nullable="true" jdbcType="12"/>
     </table>
+    <table name="budget_items" schema="public" catalog="onelooktwobudgets_development" type="TABLE">
+      <column name="id" sqlType="serial" length="10" precision="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnYnVkZ2V0X2l0ZW1zX2lkX3NlcSc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="budget_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="item_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="order" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <primary-key name="budget_items_pkey" columns="id"/>
+    </table>
+    <table name="budget_items_id_seq" schema="public" catalog="onelooktwobudgets_development" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" length="2147483647" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="budgets" schema="public" catalog="onelooktwobudgets_development" type="TABLE">
+      <column name="id" sqlType="serial" length="10" precision="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnYnVkZ2V0c19pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="author_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="look_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="description" sqlType="text" length="2147483647" precision="0" nullable="true" jdbcType="12"/>
+      <column name="popularity" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="original" sqlType="bool" length="1" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="msrp" sqlType="numeric" length="8" precision="2" nullable="true" jdbcType="2"/>
+      <primary-key name="budgets_pkey" columns="id"/>
+    </table>
+    <table name="budgets_id_seq" schema="public" catalog="onelooktwobudgets_development" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" length="2147483647" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+    </table>
     <table name="item_categories" schema="public" catalog="onelooktwobudgets_development" type="TABLE">
       <column name="id" sqlType="serial" length="10" precision="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnaXRlbV9jYXRlZ29yaWVzX2lkX3NlcSc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
       <column name="name" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
@@ -2401,9 +2446,76 @@
       <column name="is_cycled" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
       <column name="is_called" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
     </table>
+    <table name="looks" schema="public" catalog="onelooktwobudgets_development" type="TABLE">
+      <column name="id" sqlType="serial" length="10" precision="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnbG9va3NfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="name" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="image_url" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="popularity" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="author_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="brand_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="description" sqlType="text" length="2147483647" precision="0" nullable="true" jdbcType="12"/>
+      <column name="original" sqlType="bool" length="1" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="primary_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="looks_pkey" columns="id"/>
+    </table>
+    <table name="looks_id_seq" schema="public" catalog="onelooktwobudgets_development" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" length="2147483647" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+    </table>
     <table name="schema_migrations" schema="public" catalog="onelooktwobudgets_development" type="TABLE">
       <column name="version" sqlType="varchar" length="255" precision="0" nullable="false" jdbcType="12"/>
       <index name="unique_schema_migrations" unique="true" columns="version"/>
+    </table>
+    <table name="taggings" schema="public" catalog="onelooktwobudgets_development" type="TABLE">
+      <column name="id" sqlType="serial" length="10" precision="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndGFnZ2luZ3NfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="taggable_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="tag_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <primary-key name="taggings_pkey" columns="id"/>
+    </table>
+    <table name="taggings_id_seq" schema="public" catalog="onelooktwobudgets_development" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" length="2147483647" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="tags" schema="public" catalog="onelooktwobudgets_development" type="TABLE">
+      <column name="id" sqlType="serial" length="10" precision="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndGFnc19pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="name" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="author_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="uses" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <primary-key name="tags_pkey" columns="id"/>
+    </table>
+    <table name="tags_id_seq" schema="public" catalog="onelooktwobudgets_development" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" length="2147483647" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
     </table>
     <procedure name="_pg_char_max_length" schema="information_schema" catalog="onelooktwobudgets_development" type="2">
       <prototype return="true">

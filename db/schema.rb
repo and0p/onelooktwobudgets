@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106015942) do
+ActiveRecord::Schema.define(version: 20141106024902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,14 +51,6 @@ ActiveRecord::Schema.define(version: 20141106015942) do
 
   add_index "item_colors", ["name"], name: "index_item_colors_on_name", unique: true, using: :btree
 
-  create_table "item_tags", force: true do |t|
-    t.integer  "item_id"
-    t.integer  "tag_id"
-    t.integer  "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "items", force: true do |t|
     t.string   "sku"
     t.string   "name"
@@ -74,14 +66,6 @@ ActiveRecord::Schema.define(version: 20141106015942) do
     t.integer  "secondary_color_id"
   end
 
-  create_table "look_tags", force: true do |t|
-    t.integer  "look_id"
-    t.integer  "tag_id"
-    t.integer  "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "looks", force: true do |t|
     t.string   "name"
     t.string   "image_url"
@@ -93,6 +77,14 @@ ActiveRecord::Schema.define(version: 20141106015942) do
     t.text     "description"
     t.boolean  "original"
     t.integer  "primary_id"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tags", force: true do |t|
