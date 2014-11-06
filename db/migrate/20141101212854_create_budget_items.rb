@@ -1,9 +1,9 @@
 class CreateBudgetItems < ActiveRecord::Migration
   def change
     create_table :budget_items do |t|
-      t.int :budget_id
-      t.int :item_id
-      t.int :order
+      t.integer :budget_id
+      t.integer :item_id
+      t.integer :order
 
       t.timestamps
     end

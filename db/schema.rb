@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101183720) do
+ActiveRecord::Schema.define(version: 20141106015942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "budget_items", force: true do |t|
+    t.integer  "budget_id"
+    t.integer  "item_id"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "budgets", force: true do |t|
     t.integer  "author_id"
@@ -23,6 +31,8 @@ ActiveRecord::Schema.define(version: 20141101183720) do
     t.integer  "popularity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "original"
+    t.decimal  "msrp",        precision: 8, scale: 2
   end
 
   create_table "item_categories", force: true do |t|
@@ -41,6 +51,14 @@ ActiveRecord::Schema.define(version: 20141101183720) do
 
   add_index "item_colors", ["name"], name: "index_item_colors_on_name", unique: true, using: :btree
 
+  create_table "item_tags", force: true do |t|
+    t.integer  "item_id"
+    t.integer  "tag_id"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "items", force: true do |t|
     t.string   "sku"
     t.string   "name"
@@ -56,6 +74,14 @@ ActiveRecord::Schema.define(version: 20141101183720) do
     t.integer  "secondary_color_id"
   end
 
+  create_table "look_tags", force: true do |t|
+    t.integer  "look_id"
+    t.integer  "tag_id"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "looks", force: true do |t|
     t.string   "name"
     t.string   "image_url"
@@ -66,6 +92,15 @@ ActiveRecord::Schema.define(version: 20141101183720) do
     t.datetime "updated_at"
     t.text     "description"
     t.boolean  "original"
+    t.integer  "primary_id"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.integer  "author_id"
+    t.integer  "uses"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
