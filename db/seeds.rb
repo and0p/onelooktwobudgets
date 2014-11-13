@@ -52,6 +52,28 @@ item_color_list = [
     "Purple"
 ]
 
+categories = [
+    "Hat",
+    "Shirt",
+    "Armor",
+    "Dress Pants",
+    "Boots"
+]
+
+look_name_list = [
+    "Fall Look",
+    "Winter Look",
+    "Generic Dudebro",
+    "What...! No!",
+    "Pretentious Piano Player",
+    "Tuxedo Master",
+    "God",
+    "Fashionable Hobo"
+]
+
+categories.each do |category|
+  ItemCategory.create( name: category )
+end
 
 item_color_list.each do |color|
   ItemColor.create( name: color )
@@ -72,6 +94,19 @@ for i in 1..300 do
                color_hex: rand(max_int),
                sale: false,
                primary_color_id: rand(8)+1,
-               secondary_color_id: rand(8)+1
+               secondary_color_id: rand(8)+1,
+               item_category_id: rand(5+1)
   )
+end
+
+look_name_list.each do |name|
+  look = Look.create( name: name )
+  look.budgets.create( description: "Hello there.", popularity: 10, original: true )
+  look.budgets.create( description: "Hello again!.", popularity: 10, original: false )
+  look.budgets.create( description: "No one loves me....", popularity: 1, original: false )
+  look.budgets.each do |budget|
+    for i in 1..5 do
+      budget.budget_items.create( item_id: 2, order: i )
+    end
+  end
 end
