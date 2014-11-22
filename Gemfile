@@ -38,6 +38,11 @@ gem 'rails_admin'
 # User authentication
 gem 'devise'
 
+# Testing with rspec and capybara
+gem 'rspec'
+gem 'capybara'
+gem 'rspec-rails', :group => [:development, :test]
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

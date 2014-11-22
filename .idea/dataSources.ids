@@ -2457,7 +2457,8 @@
       <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
       <column name="description" sqlType="text" length="2147483647" precision="0" nullable="true" jdbcType="12"/>
       <column name="original" sqlType="bool" length="1" precision="0" nullable="true" jdbcType="-7"/>
-      <column name="primary_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="best_original_budget_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="best_cheap_budget_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="looks_pkey" columns="id"/>
     </table>
     <table name="looks_id_seq" schema="public" catalog="onelooktwobudgets_development" type="SEQUENCE">
@@ -2478,8 +2479,9 @@
     </table>
     <table name="taggings" schema="public" catalog="onelooktwobudgets_development" type="TABLE">
       <column name="id" sqlType="serial" length="10" precision="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndGFnZ2luZ3NfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
-      <column name="taggable_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="tag_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="taggable_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="taggable_type" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
       <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
       <primary-key name="taggings_pkey" columns="id"/>
@@ -12985,7 +12987,7 @@
     <procedure name="pg_identify_object" schema="pg_catalog" catalog="onelooktwobudgets_development" type="2" remarks="Z2V0IG1hY2hpbmUtcGFyc2VhYmxlIGlkZW50aWZpY2F0aW9uIG9mIFNRTCBvYmplY3Q=">
       <prototype return="true">
         <parameter name="classid" sqlType="oid" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="1"/>
-        <parameter name="objid" sqlType="oid" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="2"/>
+        <parameter name="objid" sqlType="int4" length="0" precision="0" nullable="true" jdbcType="4" type="" index="2"/>
         <parameter name="subobjid" sqlType="int4" length="0" precision="0" nullable="true" jdbcType="4" type="" index="3"/>
         <parameter name="type" sqlType="text" length="0" precision="0" nullable="true" jdbcType="12" type="" index="4"/>
         <parameter name="schema" sqlType="text" length="0" precision="0" nullable="true" jdbcType="12" type="" index="5"/>
@@ -13215,7 +13217,7 @@
     </procedure>
     <procedure name="pg_sequence_parameters" schema="pg_catalog" catalog="onelooktwobudgets_development" type="2" remarks="c2VxdWVuY2UgcGFyYW1ldGVycywgZm9yIHVzZSBieSBpbmZvcm1hdGlvbiBzY2hlbWE=">
       <prototype return="true">
-        <parameter name="sequence_oid" sqlType="oid" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="1"/>
+        <parameter name="sequence_oid" sqlType="int4" length="0" precision="0" nullable="true" jdbcType="4" type="" index="1"/>
         <parameter name="start_value" sqlType="int8" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="2"/>
         <parameter name="minimum_value" sqlType="int8" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="3"/>
         <parameter name="maximum_value" sqlType="int8" length="0" precision="0" nullable="true" jdbcType="-5" type="" index="4"/>
