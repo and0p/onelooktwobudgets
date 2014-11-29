@@ -49,8 +49,8 @@ test:
   encoding: unicode
   database: onelooktwobudgets_test
   pool: 5
-  username: onelooktwobudgets
-  password:
+  username: devuser
+  password: devpass
 
 production:
   adapter: postgresql

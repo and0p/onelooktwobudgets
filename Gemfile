@@ -42,6 +42,8 @@ gem 'devise'
 gem 'rspec'
 gem 'capybara'
 gem 'rspec-rails', :group => [:development, :test]
+gem 'factory_girl_rails'
+gem 'faker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
